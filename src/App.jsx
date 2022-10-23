@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+import reactLogo from './assets/react.svg'
 import './App.css';
 
 function App() {
             const [count, setCount] = useState(0);
-            const [crdo , setcredo]= useState()
+           const [crdo, setcredo] = useState()
+           const [crdod , setcreddo]= useState()
 
     return (
         <div className="App">
