@@ -2,3 +2,4 @@ node_modules
 .gitignore
 .prettierignore
 .prettier
+tailwind.config.cjs
