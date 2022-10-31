@@ -1,6 +1,12 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import toastMsg from '../utils/toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { isFill } from '../utils/validation';
 
-const ForgotPassword = ({setForm}) => {
+const ForgotPassword = ({ setForm }) => {
     const [forgotForm, setForgotForm] = useState({
         email: '',
     });
@@ -9,13 +15,18 @@ const ForgotPassword = ({setForm}) => {
         setForgotForm({ ...forgotForm, [field]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(forgotForm);
+
+        try {
+            await isFill(forgotForm);
+        } catch (error) {
+            toastMsg.error(error);
+        }
     };
 
     return (
-        <form action="" method="POST">
+        <form noValidate>
             <div className="mb-6">
                 <label htmlFor="name" className="block mb-2 text-textbleu">
                     Please , entrer your user name ! You will recieve a recovery
@@ -30,8 +41,10 @@ const ForgotPassword = ({setForm}) => {
                     className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-200"
                 />
             </div>
-            <div className="flex items-center mx-8 my-3 justify-end cursor-pointer">
-                <span onClick={() => setForm('login')} className=" text-bleu-4">Go to Sign in</span>
+            <div className="flex items-center mx-2 my-3 justify-end cursor-pointer">
+                <span onClick={() => setForm('login')} className=" text-bleu-4">
+                    <FontAwesomeIcon icon={faArrowLeft} /> Go to Sign in
+                </span>
             </div>
             <div className="mb-6 flex justify-start">
                 <button
@@ -42,6 +55,7 @@ const ForgotPassword = ({setForm}) => {
                     Send
                 </button>
             </div>
+            <ToastContainer/>
         </form>
     );
 };
