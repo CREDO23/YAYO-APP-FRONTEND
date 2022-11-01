@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 export const post = async (token, body, endpoint) => {
-    console.log(import.meta.env.VITE_BACKEND_API_URL);
     return await axios({
         method: 'POST',
-        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
+        url: `https://yayo-app-backend.onrender.com/${endpoint}`,
         data: body,
         headers: {
             Authorization: `Bearer ${token}`,
