@@ -55,7 +55,7 @@ const ForgotPassword = ({ setForm }) => {
                     Send
                 </button>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </form>
     );
 };

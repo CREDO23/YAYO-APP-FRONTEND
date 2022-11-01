@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import LoginForm from '../components/signinForm';
 import ForgotPassword from '../components/forgotPasswordForm';
-import LoginImg  from '../assets/loginImg.svg';
-import ForgotImg  from '../assets/forgotImg.svg';
+import LoginImg from '../assets/loginImg.svg';
+import ForgotImg from '../assets/forgotImg.svg';
 
 const Connexion = () => {
     const [form, setForm] = useState('login');
@@ -33,7 +33,7 @@ const Connexion = () => {
             </div>
             <div className="w-1/2 flex items-center justify-center">
                 {form === 'login' ? (
-                    <img  src={LoginImg}></img>
+                    <img src={LoginImg}></img>
                 ) : form === 'forgot' ? (
                     <img src={ForgotImg}></img>
                 ) : null}

@@ -3,8 +3,15 @@ import { ToastContainer } from 'react-toastify';
 import toastMsg from '../utils/toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { isFill } from '../utils/validation';
+import { login } from '../store/actions/user';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const LoginForm = ({ setForm }) => {
+    const dispatch = useDispatch();
+    const { isLoadingLogin } = useSelector((state) => state.currentUser);
     const [loginForm, setloginForm] = useState({
         userName: '',
         password: '',
@@ -18,16 +25,13 @@ const LoginForm = ({ setForm }) => {
         e.preventDefault();
 
         try {
-            
-            await isFill(loginForm)
+            await isFill(loginForm);
 
+            dispatch(login(loginForm));
         } catch (error) {
-            toastMsg.error(error)
+            toastMsg.error(error);
         }
-
-        
-        
-    }
+    };
 
     return (
         <form noValidate>
@@ -63,7 +67,9 @@ const LoginForm = ({ setForm }) => {
             </div>
             <div className="flex item-center justify-end mx-2 cursor-pointer my-3">
                 <span
-                    onClick={() => setForm('forgot')}
+                    onClick={() => {
+                        if (!isLoadingLogin) setForm('forgot');
+                    }}
                     className=" text-bleu-4"
                 >
                     Forgot password ?
@@ -75,8 +81,16 @@ const LoginForm = ({ setForm }) => {
                     type="submit"
                     onClick={handleSubmit}
                     className="w-3/6 px-2 py-4 text-white bg-bleu rounded-md  focus:bg-indigo-600 focus:outline-none"
+                    disabled = {isLoadingLogin}
                 >
-                    Sing In
+                    {isLoadingLogin ? (
+                        <FontAwesomeIcon
+                            className=" animate-spin"
+                            icon={faSpinner}
+                        />
+                    ) : (
+                        'Sign in'
+                    )}
                 </button>
             </div>
             <ToastContainer />
