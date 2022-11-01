@@ -81,7 +81,7 @@ const LoginForm = ({ setForm }) => {
                     type="submit"
                     onClick={handleSubmit}
                     className="w-3/6 px-2 py-4 text-white bg-bleu rounded-md  focus:bg-indigo-600 focus:outline-none"
-                    disabled = {isLoadingLogin}
+                    disabled={isLoadingLogin}
                 >
                     {isLoadingLogin ? (
                         <FontAwesomeIcon
