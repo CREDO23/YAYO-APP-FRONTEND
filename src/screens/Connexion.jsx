@@ -12,7 +12,7 @@ const Connexion = () => {
             <div className="w-1/2 flex items-center flex-col h-full justify-center ">
                 {form === 'login' ? (
                     <div className="w-3/4 h-3/6 flex flex-col justify-evenly">
-                        <div className="my-4">
+                        <div className="my-8">
                             <h3 className=" text-jaune text-5xl font-bold">
                                 Welcome back !
                             </h3>
