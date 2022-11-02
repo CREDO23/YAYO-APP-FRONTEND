@@ -30,7 +30,7 @@ const ForgotPassword = ({ setForm }) => {
 
             dispatch(forgotPassword(forgotEmailForm));
         } catch (error) {
-            toastMsg.error(error.message);
+            toastMsg.error(error);
         }
     };
 

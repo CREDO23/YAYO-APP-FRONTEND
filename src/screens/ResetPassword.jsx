@@ -34,7 +34,7 @@ const ResetPasswordScreen = () => {
         e.preventDefault();
 
         try {
-            console.log(token);
+            
             await isFill(resetPasswordForm);
 
             const isInputMatched = await isMatch(
@@ -46,7 +46,7 @@ const ResetPasswordScreen = () => {
                 dispatch(resetPassword(token, resetPasswordForm));
             }
         } catch (error) {
-            toastMsg.error(error.message);
+            toastMsg.error(error);
         }
     };
 
@@ -60,7 +60,7 @@ const ResetPasswordScreen = () => {
                     <form className=" text-textbleu " noValidate>
                         <div className="mb-6">
                             <label
-                                htmlFor="name"
+                                htmlFor="password"
                                 className="block mb-2 text-textbleu"
                             >
                                 Password
@@ -74,7 +74,7 @@ const ResetPasswordScreen = () => {
                                 className="w-full mb-8 px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-200"
                             />
                             <label
-                                htmlFor="name"
+                                htmlFor="confirmPassword"
                                 className="block mb-2 text-textbleu"
                             >
                                 Confirm password
@@ -91,16 +91,24 @@ const ResetPasswordScreen = () => {
                             />
                         </div>
                         <div className="flex items-center mx-2 my-3 justify-end cursor-pointer">
-                            <Link to="/">
+                            {!isLoadingLogin ? (
+                                <Link to="/">
+                                    <span className=" text-bleu-4">
+                                        <FontAwesomeIcon icon={faArrowLeft} />{' '}
+                                        Go to Sign in
+                                    </span>
+                                </Link>
+                            ) : (
                                 <span className=" text-bleu-4">
                                     <FontAwesomeIcon icon={faArrowLeft} /> Go to
                                     Sign in
                                 </span>
-                            </Link>
+                            )}
                         </div>
                         <div className="mb-6 flex justify-start">
                             <button
                                 type="submit"
+                                disabled={isLoadingLogin}
                                 onClick={handleSubmit}
                                 className="w-3/6 px-2 py-4 text-white bg-bleu rounded-md  focus:bg-indigo-600 focus:outline-none"
                             >

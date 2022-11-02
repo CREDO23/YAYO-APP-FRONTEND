@@ -23,7 +23,7 @@ export const isMatch = (arg1, arg2) => {
         if (arg1 === arg2) {
             resolve(true);
         } else {
-            reject(false);
+            reject('Passowrd does not match');
         }
     });
 };
