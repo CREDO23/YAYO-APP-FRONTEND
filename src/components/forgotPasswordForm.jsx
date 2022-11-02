@@ -15,7 +15,7 @@ const ForgotPassword = ({ setForm }) => {
     const dispatch = useDispatch();
 
     const [forgotEmailForm, setforgotEmailForm] = useState({
-        email: '',
+        userName: '',
     });
 
     const heandleLoginForm = (e, field) => {
@@ -43,9 +43,9 @@ const ForgotPassword = ({ setForm }) => {
                 </label>
                 <input
                     type="email"
-                    name="email"
+                    name="userName"
                     placeholder="joe123@gmail.com"
-                    onChange={(e) => heandleLoginForm(e, 'email')}
+                    onChange={(e) => heandleLoginForm(e, 'userName')}
                     required
                     className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-200"
                 />
