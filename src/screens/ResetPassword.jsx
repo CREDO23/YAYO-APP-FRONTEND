@@ -34,6 +34,8 @@ const ResetPasswordScreen = () => {
         e.preventDefault();
 
         try {
+
+            console.log(token)
             await isFill(resetPasswordForm);
 
             const isInputMatched = await isMatch(
@@ -42,9 +44,7 @@ const ResetPasswordScreen = () => {
             );
 
             if (isInputMatched) {
-                dispatch(
-                    resetPassword(resetPasswordForm, token),
-                );
+                dispatch(resetPassword(resetPasswordForm, token));
             }
         } catch (error) {
             toastMsg.error(error.message);
