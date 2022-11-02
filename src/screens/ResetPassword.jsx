@@ -34,8 +34,6 @@ const ResetPasswordScreen = () => {
         e.preventDefault();
 
         try {
-            
-
             await isFill(resetPasswordForm);
 
             const isInputMatched = await isMatch(
@@ -45,7 +43,7 @@ const ResetPasswordScreen = () => {
 
             if (isInputMatched) {
                 dispatch(
-                    resetPassword({ email: resetPasswordForm.password }, token),
+                    resetPassword(resetPasswordForm, token),
                 );
             }
         } catch (error) {
