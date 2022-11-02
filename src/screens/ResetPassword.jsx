@@ -28,7 +28,9 @@ const ResetPasswordScreen = () => {
         });
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
         try {
             const { token } = useParams();
 
