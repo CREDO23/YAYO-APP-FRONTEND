@@ -1,10 +1,14 @@
-import Connexion from './screens/Connexion';
+
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes/index';
 
 function App() {
     return (
-        <div className="w-full h-[100vh]">
-            <Connexion />
-        </div>
+        <Router>
+            <div className="w-full h-[100vh]">
+                <Routes />
+            </div>
+        </Router>
     );
 }
 

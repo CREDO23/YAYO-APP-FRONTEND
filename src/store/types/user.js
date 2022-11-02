@@ -1,15 +1,13 @@
-const userTypes = {
-    login: {
-        REQUEST: 'REQUEST',
-        SUCCESS: 'SUCCESS',
-        FAILURE: 'FAILURE',
-    },
+import { Type } from './index';
 
-    updateProfile: {
-        REQUEST: 'REQUEST',
-        SUCCESS: 'SUCCESS',
-        FAILURE: 'FAILURE',
-    },
+const userTypes = {
+    login: new Type('LOGIN'),
+
+    updateProfile: new Type('UPDATE_PROFILE'),
+
+    forgotPassword: new Type('FORGOT_PASSWORD'),
+
+    resetPassword: new Type('RESET_PASSWORD'),
 };
 
 export default userTypes;

@@ -17,3 +17,13 @@ export const isFill = (form) => {
         }
     });
 };
+
+export const isMatch = (arg1, arg2) => {
+    return new Promise((resolve, reject) => {
+        if (arg1 === arg2) {
+            resolve(true);
+        } else {
+            reject(false);
+        }
+    });
+};
