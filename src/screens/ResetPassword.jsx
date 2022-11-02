@@ -43,7 +43,7 @@ const ResetPasswordScreen = () => {
             );
 
             if (isInputMatched) {
-                dispatch(resetPassword(resetPasswordForm, token));
+                dispatch(resetPassword(token, resetPasswordForm));
             }
         } catch (error) {
             toastMsg.error(error.message);

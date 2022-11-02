@@ -73,7 +73,7 @@ export const forgotPassword = (email) => {
     };
 };
 
-export const resetPassword = (password, token) => {
+export const resetPassword = (token, password) => {
     return async (dispatch) => {
         try {
             dispatch({
@@ -81,11 +81,7 @@ export const resetPassword = (password, token) => {
                 payload: true,
             });
 
-            const { data } = await patch(
-                '',
-                password,
-                `password/reset/${token}`,
-            );
+            const { data } = await patch(token, password, `password/reset`);
 
             if (!data.success) {
                 dispatch({
