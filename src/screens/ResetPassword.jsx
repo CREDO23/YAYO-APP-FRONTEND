@@ -34,8 +34,7 @@ const ResetPasswordScreen = () => {
         e.preventDefault();
 
         try {
-
-            console.log(token)
+            console.log(token);
             await isFill(resetPasswordForm);
 
             const isInputMatched = await isMatch(
