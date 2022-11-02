@@ -47,7 +47,7 @@ export const forgotPassword = (email) => {
                 payload: true,
             });
 
-            const { data } = await patch('', email, 'password/forgot');
+            const { data } = await post('', email, 'password/forgot');
 
             if (!data.success) {
                 dispatch({
