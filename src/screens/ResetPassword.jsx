@@ -14,6 +14,8 @@ import { useSelector } from 'react-redux';
 const ResetPasswordScreen = () => {
     const dispatch = useDispatch();
 
+    const { token } = useParams();
+
     const { isLoadingLogin } = useSelector((state) => state.currentUser);
 
     const [resetPasswordForm, setResePasswordtForm] = useState({
@@ -30,9 +32,9 @@ const ResetPasswordScreen = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         try {
-            const { token } = useParams();
+            
 
             await isFill(resetPasswordForm);
 
