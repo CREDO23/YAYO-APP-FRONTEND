@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { isFill, isMatch } from '../utils/validation';
 import { resetPassword } from '../store/actions/user';
 import { ToastContainer } from 'react-toastify';
@@ -9,9 +9,12 @@ import toastMsg from '../utils/toastify';
 import { useParams } from 'react-router-dom';
 import ForgotImg from '../assets/forgotImg.svg';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const ResetPasswordScreen = () => {
     const dispatch = useDispatch();
+
+    const { isLoadingLogin } = useSelector((state) => state.currentUser);
 
     const [resetPasswordForm, setResePasswordtForm] = useState({
         password: '',
@@ -87,7 +90,7 @@ const ResetPasswordScreen = () => {
                             />
                         </div>
                         <div className="flex items-center mx-2 my-3 justify-end cursor-pointer">
-                            <Link to='/' >
+                            <Link to="/">
                                 <span className=" text-bleu-4">
                                     <FontAwesomeIcon icon={faArrowLeft} /> Go to
                                     Sign in
@@ -100,7 +103,14 @@ const ResetPasswordScreen = () => {
                                 onClick={handleSubmit}
                                 className="w-3/6 px-2 py-4 text-white bg-bleu rounded-md  focus:bg-indigo-600 focus:outline-none"
                             >
-                                Send
+                                {isLoadingLogin ? (
+                                    <FontAwesomeIcon
+                                        className=" animate-spin"
+                                        icon={faSpinner}
+                                    />
+                                ) : (
+                                    'Send'
+                                )}
                             </button>
                         </div>
                         <ToastContainer />

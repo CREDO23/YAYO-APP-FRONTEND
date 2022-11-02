@@ -1,16 +1,20 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft , faSpinner} from '@fortawesome/free-solid-svg-icons';
 import toastMsg from '../utils/toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { isFill } from '../utils/validation';
 import { useDispatch } from 'react-redux';
 import { forgotPassword } from '../store/actions/user';
+import { useSelector } from 'react-redux';
 
 const ForgotPassword = ({ setForm }) => {
 
-    const dispatch = useDispatch()
+    const { isLoadingLogin } = useSelector((state) => state.currentUser);
+
+    const dispatch = useDispatch();
+
     const [forgotEmailForm, setforgotEmailForm] = useState({
         email: '',
     });
@@ -25,7 +29,7 @@ const ForgotPassword = ({ setForm }) => {
         try {
             await isFill(forgotEmailForm);
 
-            dispatch(forgotPassword(forgotEmailForm))
+            dispatch(forgotPassword(forgotEmailForm));
         } catch (error) {
             toastMsg.error(error.message);
         }
@@ -58,7 +62,14 @@ const ForgotPassword = ({ setForm }) => {
                     onClick={handleSubmit}
                     className="w-3/6 px-2 py-4 text-white bg-bleu rounded-md  focus:bg-indigo-600 focus:outline-none"
                 >
-                    Send
+                     {isLoadingLogin ? (
+                        <FontAwesomeIcon
+                            className=" animate-spin"
+                            icon={faSpinner}
+                        />
+                    ) : (
+                        'Send'
+                    )}
                 </button>
             </div>
             <ToastContainer />
