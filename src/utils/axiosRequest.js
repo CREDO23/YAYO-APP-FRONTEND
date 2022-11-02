@@ -18,7 +18,7 @@ export const get = async (token, endpoint) => {
         method: 'GET',
         url: `https://yayo-app-backend.onrender.com/${endpoint}`,
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : null,
             Accept: 'application/json',
             'Content-Type': 'application/json;charset=UTF-8',
         },
@@ -31,7 +31,7 @@ export const put = async (token, body, endpoint) => {
         url: `https://yayo-app-backend.onrender.com/${endpoint}`,
         data: body,
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : null,
             Accept: 'application/json',
             'Content-Type': 'application/json;charset=UTF-8',
         },
@@ -44,7 +44,7 @@ export const patch = async (token, body, endpoint) => {
         url: `https://yayo-app-backend.onrender.com/${endpoint}`,
         data: body,
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : null,
             Accept: 'application/json',
             'Content-Type': 'application/json;charset=UTF-8',
         },
