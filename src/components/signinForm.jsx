@@ -34,7 +34,7 @@ const LoginForm = ({ setForm }) => {
     };
 
     return (
-        <form className=' text-textbleu ' noValidate>
+        <form className=" text-textbleu " noValidate>
             <div className="mb-6">
                 <label htmlFor="name" className="block text-textbleu mb-2">
                     User Name

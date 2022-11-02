@@ -1,6 +1,7 @@
 import userTypes from '../types/user';
 import toastMsg from '../../utils/toastify';
 import { post } from '../../utils/axiosRequest';
+import handleError from '../../utils/handleError';
 
 export const login = (user) => {
     return async (dispatch) => {
@@ -31,7 +32,7 @@ export const login = (user) => {
                 payload: false,
             });
 
-            toastMsg.error(error.response.data.message);
+            handleError(error);
         }
     };
 };
