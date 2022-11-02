@@ -26,7 +26,7 @@ const ForgotPassword = ({ setForm }) => {
     };
 
     return (
-        <form className=' text-textbleu ' noValidate>
+        <form className=" text-textbleu " noValidate>
             <div className="mb-6">
                 <label htmlFor="name" className="block mb-2 text-textbleu">
                     Please , entrer your user name ! You will recieve a recovery
@@ -43,7 +43,7 @@ const ForgotPassword = ({ setForm }) => {
             </div>
             <div className="flex items-center mx-2 my-3 justify-end cursor-pointer">
                 <span onClick={() => setForm('login')} className=" text-bleu-4">
-                    <FontAwesomeIcon  icon={faArrowLeft} /> Go to Sign in
+                    <FontAwesomeIcon icon={faArrowLeft} /> Go to Sign in
                 </span>
             </div>
             <div className="mb-6 flex justify-start">
