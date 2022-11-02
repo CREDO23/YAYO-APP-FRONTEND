@@ -45,7 +45,7 @@ const ResetPasswordScreen = () => {
 
             if (isInputMatched) {
                 dispatch(
-                    resetPassword({ email: resetPasswordForm.password }, token),
+                    resetPassword('' ,{ email: resetPasswordForm.password }, token),
                 );
             }
         } catch (error) {
