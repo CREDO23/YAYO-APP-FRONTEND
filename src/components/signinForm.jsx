@@ -29,7 +29,7 @@ const LoginForm = ({ setForm }) => {
 
             dispatch(login(loginForm));
         } catch (error) {
-            toastMsg.error(error);
+            toastMsg.error(error.message);
         }
     };
 

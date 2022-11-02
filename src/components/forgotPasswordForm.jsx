@@ -5,23 +5,29 @@ import toastMsg from '../utils/toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { isFill } from '../utils/validation';
+import { useDispatch } from 'react-redux';
+import { forgotPassword } from '../store/actions/user';
 
 const ForgotPassword = ({ setForm }) => {
-    const [forgotForm, setForgotForm] = useState({
+
+    const dispatch = useDispatch()
+    const [forgotEmailForm, setforgotEmailForm] = useState({
         email: '',
     });
 
     const heandleLoginForm = (e, field) => {
-        setForgotForm({ ...forgotForm, [field]: e.target.value });
+        setforgotEmailForm({ ...forgotEmailForm, [field]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await isFill(forgotForm);
+            await isFill(forgotEmailForm);
+
+            dispatch(forgotPassword(forgotEmailForm))
         } catch (error) {
-            toastMsg.error(error);
+            toastMsg.error(error.message);
         }
     };
 
