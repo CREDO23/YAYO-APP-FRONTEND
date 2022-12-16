@@ -3,7 +3,8 @@ import axios from 'axios';
 export const post = async (token, body, endpoint) => {
     return await axios({
         method: 'POST',
-        url: `https://yayo-app-backend.onrender.com/${endpoint}`,
+        // eslint-disable-next-line no-undef
+        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
         data: body,
         headers: {
             Authorization: `Bearer ${token}`,
@@ -16,7 +17,8 @@ export const post = async (token, body, endpoint) => {
 export const get = async (token, endpoint) => {
     return await axios({
         method: 'GET',
-        url: `https://yayo-app-backend.onrender.com/${endpoint}`,
+        // eslint-disable-next-line no-undef
+        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
         headers: {
             Authorization: token ? `Bearer ${token}` : null,
             Accept: 'application/json',
@@ -28,7 +30,8 @@ export const get = async (token, endpoint) => {
 export const put = async (token, body, endpoint) => {
     return await axios({
         method: 'PUT',
-        url: `https://yayo-app-backend.onrender.com/${endpoint}`,
+        // eslint-disable-next-line no-undef
+        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
         data: body,
         headers: {
             Authorization: token ? `Bearer ${token}` : null,
@@ -41,7 +44,8 @@ export const put = async (token, body, endpoint) => {
 export const patch = async (token, body, endpoint) => {
     return await axios({
         method: 'PATCH',
-        url: `https://yayo-app-backend.onrender.com/${endpoint}`,
+        // eslint-disable-next-line no-undef
+        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
         data: body,
         headers: {
             Authorization: token ? `Bearer ${token}` : null,

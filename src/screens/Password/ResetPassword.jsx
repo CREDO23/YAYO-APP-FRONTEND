@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { isFill, isMatch } from '../utils/validation';
-import { resetPassword } from '../store/actions/user';
-import { ToastContainer } from 'react-toastify';
+import { isFill, isMatch } from '../../utils/validation';
+import { resetPassword } from '../../store/actions/user';
 import { useDispatch } from 'react-redux';
-import toastMsg from '../utils/toastify';
+import toastMsg from '../../utils/toastify';
 import { useParams } from 'react-router-dom';
-import ForgotImg from '../assets/forgotImg.svg';
+import ForgotImg from '../../assets/forgotImg.svg';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -51,7 +50,7 @@ const ResetPasswordScreen = () => {
     };
 
     return (
-        <div className="w-full flex h-full">
+        <>
             <div className="w-1/2 flex items-center flex-col h-full justify-center ">
                 <div className="w-3/4 h-2/5 flex flex-col justify-evenly">
                     <h3 className="my-4 text-3xl  text-textbleu font-bold">
@@ -122,14 +121,13 @@ const ResetPasswordScreen = () => {
                                 )}
                             </button>
                         </div>
-                        <ToastContainer />
                     </form>
                 </div>
             </div>
             <div className="w-1/2 flex items-center justify-center">
                 <img src={ForgotImg}></img>
             </div>
-        </div>
+        </>
     );
 };
 
