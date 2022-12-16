@@ -62,9 +62,7 @@ const ForgotPassword = () => {
                             />
                         </div>
                         <div className="flex items-center mx-2 my-3 justify-end cursor-pointer">
-                            <span
-                                className=" text-bleu-4"
-                            >
+                            <span className=" text-bleu-4">
                                 <FontAwesomeIcon icon={faArrowLeft} /> Go to
                                 Sign in
                             </span>

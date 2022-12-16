@@ -7,7 +7,7 @@ function App() {
         <Router>
             <div className="w-full h-[100vh]">
                 <Routes />
-                <ToastContainer/>
+                <ToastContainer />
             </div>
         </Router>
     );

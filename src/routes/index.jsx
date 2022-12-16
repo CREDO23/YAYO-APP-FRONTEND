@@ -5,7 +5,7 @@ import ForgotPassword from '../screens/Password/ForgotPassword';
 import Singin from '../screens/connexion/Singin';
 import { Route, Routes } from 'react-router-dom';
 
-export default function (){
+export default function () {
     return (
         <Routes>
             <Route path="/" element={<Connexion />}>

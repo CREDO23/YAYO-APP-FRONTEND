@@ -33,7 +33,6 @@ const ResetPasswordScreen = () => {
         e.preventDefault();
 
         try {
-            
             await isFill(resetPasswordForm);
 
             const isInputMatched = await isMatch(
