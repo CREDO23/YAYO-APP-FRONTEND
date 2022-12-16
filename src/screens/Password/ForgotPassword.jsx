@@ -5,13 +5,14 @@ import toastMsg from '../../utils/toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { isFill } from '../../utils/validation';
 import { useDispatch } from 'react-redux';
-import { forgotPassword } from '../../store/actions/user';
+import { forgotPassword } from '../../store/slices/currentuser';
 import { useSelector } from 'react-redux';
 import ForgotImg from '../../assets/forgotImg.svg';
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
     const { isLoadingLogin } = useSelector((state) => state.currentUser);
-
+``
     const dispatch = useDispatch();
 
     const [forgotEmailForm, setforgotEmailForm] = useState({
@@ -62,10 +63,12 @@ const ForgotPassword = () => {
                             />
                         </div>
                         <div className="flex items-center mx-2 my-3 justify-end cursor-pointer">
-                            <span className=" text-bleu-4">
-                                <FontAwesomeIcon icon={faArrowLeft} /> Go to
-                                Sign in
-                            </span>
+                            <Link to="/">
+                                <span className=" text-bleu-4">
+                                    <FontAwesomeIcon icon={faArrowLeft} /> Go to
+                                    Sign in
+                                </span>
+                            </Link>
                         </div>
                         <div className="mb-6 flex justify-start">
                             <button

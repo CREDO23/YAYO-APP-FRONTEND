@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { isFill, isMatch } from '../../utils/validation';
-import { resetPassword } from '../../store/actions/user';
+import { resetPassword } from '../../store/slices/currentuser';
 import { useDispatch } from 'react-redux';
 import toastMsg from '../../utils/toastify';
 import { useParams } from 'react-router-dom';

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import toastMsg from '../../utils/toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { isFill } from '../../utils/validation';
-import { login } from '../../store/actions/user';
+import { singin } from '../../store/slices/currentuser';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,7 +30,7 @@ const LoginForm = () => {
         try {
             await isFill(loginForm);
 
-            dispatch(login(loginForm));
+            dispatch(singin(loginForm));
         } catch (error) {
             toastMsg.error(error);
         }

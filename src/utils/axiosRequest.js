@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const post = async (token, body, endpoint) => {
+export const post = async (token, body, path) => {
     return await axios({
         method: 'POST',
-        // eslint-disable-next-line no-undef
-        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
+        baseURL : import.meta.env.VITE_BACKEND_API_URL,
+        url: path,
         data: body,
         headers: {
             Authorization: `Bearer ${token}`,
@@ -14,11 +14,11 @@ export const post = async (token, body, endpoint) => {
     });
 };
 
-export const get = async (token, endpoint) => {
+export const get = async (token, path) => {
     return await axios({
         method: 'GET',
-        // eslint-disable-next-line no-undef
-        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
+        baseURL : import.meta.env.VITE_BACKEND_API_URL,
+        url: path,
         headers: {
             Authorization: token ? `Bearer ${token}` : null,
             Accept: 'application/json',
@@ -27,11 +27,11 @@ export const get = async (token, endpoint) => {
     });
 };
 
-export const put = async (token, body, endpoint) => {
+export const put = async (token, body, path) => {
     return await axios({
         method: 'PUT',
-        // eslint-disable-next-line no-undef
-        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
+        baseURL : import.meta.env.VITE_BACKEND_API_URL,
+        url: path,
         data: body,
         headers: {
             Authorization: token ? `Bearer ${token}` : null,
@@ -41,11 +41,11 @@ export const put = async (token, body, endpoint) => {
     });
 };
 
-export const patch = async (token, body, endpoint) => {
+export const patch = async (token, body, path) => {
     return await axios({
         method: 'PATCH',
-        // eslint-disable-next-line no-undef
-        url: `${import.meta.env.VITE_BACKEND_API_URL}/${endpoint}`,
+        baseURL : import.meta.env.VITE_BACKEND_API_URL,
+        url: path,
         data: body,
         headers: {
             Authorization: token ? `Bearer ${token}` : null,
